@@ -19,7 +19,7 @@
 
 <addon
   id="plugin.video.SportsDevil"
-  version="2016-03-21"
+  version="3.0"
   name="SportsDevil"
   provider-name="MaxMustermann,Al101,Hubbab3,Sattekop">
   <requires>
