@@ -17,6 +17,27 @@
   </extension>
 </addon>
 
+<addon
+  id="plugin.video.SportsDevil"
+  version="2016-03-21"
+  name="SportsDevil"
+  provider-name="MaxMustermann,Al101,Hubbab3,Sattekop">
+  <requires>
+   <import addon="xbmc.python" version="2.14.0"/>
+   <import addon="script.module.requests" />
+  </requires>
+  <extension
+    point="xbmc.python.pluginsource"
+    library="default.py">
+   <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary>Play videos of different sports streaming sites</summary>
+    <description>Play videos of different sports streaming sites</description>
+    <platform>all</platform>
+  </extension>
+</addon>
+
 <addon id="repository.tdbegley.official" name="[COLOR orange][B]Thomas Begleys'[/B][/COLOR] Official Builds Repository" version="1.0" provider-name="Thomas Begley">
     <extension point="xbmc.addon.repository" name="thomas begley repository">
         <info compressed="false">http://github.com/tdbegley28/TB-Wizard/raw/master/addons.xml</info>
