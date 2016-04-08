@@ -38,7 +38,7 @@
   </extension>
 </addon>
 
-<addon id="repository.tdbegley.official" name="[COLOR orange]Thomas Begleys[/COLOR] Builds Repository" version="1.1" provider-name="Thomas Begley">
+<addon id="repository.tdbegley.official" name="[COLOR orange]Thomas Begley[/COLOR] Builds Repository" version="1.1" provider-name="Thomas Begley">
     <extension point="xbmc.addon.repository" name="thomas begley repository">
         <info compressed="false">http://github.com/tdbegley28/TB-Wizard/raw/master/addons.xml</info>
         <checksum>http://github.com/tdbegley28/TB-Wizard/raw/master/addons.xml.md5</checksum>
