@@ -38,15 +38,15 @@
   </extension>
 </addon>
 
-<addon id="repository.tdbegley.official" name="[COLOR orange][B]Thomas Begleys'[/B][/COLOR] Official Builds Repository" version="1.0" provider-name="Thomas Begley">
+<addon id="repository.tdbegley.official" name="[COLOR orange]Thomas Begleys[/COLOR] Builds Repository" version="1.1" provider-name="Thomas Begley">
     <extension point="xbmc.addon.repository" name="thomas begley repository">
         <info compressed="false">http://github.com/tdbegley28/TB-Wizard/raw/master/addons.xml</info>
         <checksum>http://github.com/tdbegley28/TB-Wizard/raw/master/addons.xml.md5</checksum>
         <datadir zip="true">http://github.com/tdbegley28/TB-Wizard/raw/master/zips/</datadir>
     </extension>
     <extension point="xbmc.addon.metadata">
-        <summary>This is used FOR BUILDS ONLY</summary>
-        <description>BUILDS ONLY FROM THOMAS BEGLEY - THIS REPO CONTAINS UPDATES FOR THE THOMAS BEGLEY BUILDS
+        <summary>Thomas Begleys Repository</summary>
+        <description>THIS REPO CONTAINS UPDATES FOR THE BUILD WIZARD AND SOME ADDONS.
         </description>
         <platform>all</platform>
     </extension>
