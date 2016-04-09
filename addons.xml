@@ -17,6 +17,23 @@
   </extension>
 </addon>
 
+<addon id="plugin.video.tdbadvanced" name="..[COLOR orange]TDB[/COLOR] [COLOR wizard] Advanced Settings[/COLOR]" version="1.0" provider-name="Thomas Begley">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+	<import addon="script.module.addon.common" />
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>executable</provides>
+  </extension>
+  <extension point="xbmc.service" library="service.py" start="startup">
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">[COLOR lime]TDB[/COLOR] Advanced Settings</summary>
+    <description lang="en">Tired of constant buffering? Then install Thomas Begleys Official advancedsettings.xml settings for your system.</description>
+    <platform>all</platform>
+  </extension>
+</addon>
+
 <addon id="repository.tdbegley.official" name="[COLOR orange]TDB[/COLOR] Builds Repository" version="1.1" provider-name="Thomas Begley">
     <extension point="xbmc.addon.repository" name="thomas begley repository">
         <info compressed="false">http://github.com/tdbegley28/TB-Wizard/raw/master/addons.xml</info>
