@@ -32,7 +32,7 @@ PATH = "TDB Wizard"
 BASEURL = "http://test.com"
 H = 'http://'
 skin         =  xbmc.getSkinDir()
-EXCLUDES     = ['backupdir','plugin.video.tdbwizard','script.module.addon.common','repository.tdbegley.official','backup','backup.zip']
+EXCLUDES     = ['backupdir','plugin.video.tdbwizard','plugin.video.tdbadvanced','script.module.addon.common','repository.tdbegley.official','backup','backup.zip']
 
 ARTPATH      =  '' + os.sep
 UPDATEPATH     =  xbmc.translatePath(os.path.join('special://home/addons',''))
@@ -66,7 +66,7 @@ urlbase      =  'None'
 mastercopy   =  ADDON.getSetting('mastercopy')
 dialog = xbmcgui.Dialog()
 urlupdate =  ""
-updatename =  "schismtv_update"
+updatename =  "tdb_update"
 backupdir    =  xbmc.translatePath(os.path.join('special://home/backupdir',''))
 USB          =  xbmc.translatePath(os.path.join('special://home/addons/plugin.video.tdbwizard',''))
 mybackuppath =  xbmc.translatePath(os.path.join('special://home',''))
@@ -542,7 +542,7 @@ def WipeXBMC():
             if ( not vq ): return False, 0
             title = urllib.quote_plus(vq)
             backup_zip = xbmc.translatePath(os.path.join(mybackuppath,title+'.zip'))
-            exclude_dirs_full =  ['backupdir','plugin.video.tdbwizard','repository.tdbegley.official']
+            exclude_dirs_full =  ['backupdir','plugin.video.tdbwizard','plugin.video.tdbadvanced','repository.tdbegley.official']
             exclude_files_full = ["xbmc.log","xbmc.old.log","kodi.log","kodi.old.log",'.DS_Store','.setup_complete','XBMCHelper.conf']
             message_header = "Creating full backup of existing build"
             message1 = "Archiving..."
