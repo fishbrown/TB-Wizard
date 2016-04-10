@@ -168,7 +168,7 @@ def BACKUPSKINSHORTCUTS():
             dp.update(int(progress),"Backing Up",'[COLOR yellow]%s[/COLOR]'%name, 'Please Wait')
             fn = os.path.join(base, name)
             if not 'temp' in dirs:
-                if not 'plugin.video.usbAdvanced Settings' in dirs:
+                if not 'plugin.video.usbwizard' in dirs:
                    import time
                    CUNT= '01/01/1980'
                    FILE_DATE=time.strftime('%d/%m/%Y', time.gmtime(os.path.getmtime(fn)))
@@ -451,7 +451,7 @@ def INDEX():
 
 def BUILDMENU():
     
-    link = OPEN_URL('https://archive.org/download/tdbadvanced/Advanced Settings_rel.txt').replace('\n','').replace('\r','')
+    link = OPEN_URL('https://archive.org/download/tdbadvanced/wizard_rel.txt').replace('\n','').replace('\r','')
     match = re.compile('name="(.+?)".+?rl="(.+?)".+?mg="(.+?)".+?anart="(.+?)".+?ersion="(.+?)"').findall(link)
     for name,url,iconimage,fanart,description in match:
         addDir(name + " ver:" + description,url,90,iconimage,fanart,description)
@@ -549,7 +549,7 @@ def WipeXBMC():
             message2 = ""
             message3 = "Please Wait"
             ARCHIVE_CB(HOME, backup_zip, message_header, message1, message2, message3, exclude_dirs_full, exclude_files_full)
-    choice2 = xbmcgui.Dialog().yesno("ABSOLUTELY CERTAIN?!!!", 'Are you absolutely certain you want to wipe this install?', '', 'All addons EXCLUDING THIS Advanced Settings will be completely wiped!', yeslabel='Yes',nolabel='No')
+    choice2 = xbmcgui.Dialog().yesno("ABSOLUTELY CERTAIN?!!!", 'Are you absolutely certain you want to wipe this install?', '', 'All addons EXCLUDING THIS WIZARD will be completely wiped!', yeslabel='Yes',nolabel='No')
     if choice2 == 0:
         return
     elif choice2 == 1:
@@ -596,7 +596,7 @@ def WipeInstall():
         dialog.ok('[COLOR=blue][B]TDB[/B][/COLOR][COLOR=green]box[/COLOR] Tool','Please switch to the default Confluence skin','before performing a wipe.','')
         xbmc.executebuiltin("ActivateWindow(appearancesettings)")       
     else:
-        choice = xbmcgui.Dialog().yesno("WANT TO CONTINUE?", 'Are you absolutely certain you want to wipe this install?', '', 'All addons EXCLUDING THIS Advanced Settings will be completely wiped!', yeslabel='Yes',nolabel='No')
+        choice = xbmcgui.Dialog().yesno("WANT TO CONTINUE?", 'Are you absolutely certain you want to wipe this install?', '', 'All addons EXCLUDING THIS WIZARD will be completely wiped!', yeslabel='Yes',nolabel='No')
         if choice == 0:
             return
         elif choice == 1:
@@ -778,7 +778,7 @@ except:
  
 
 
-def Advanced Settings(name,url,description):
+def WIZARD(name,url,description):
     dp.create("[COLOR=orange][B]TDB[/B][/COLOR][COLOR=white] Advanced Settings [/COLOR]","Downloading ",'', 'Please Wait')
     lib=os.path.join(path, name+'.zip')
     try:
@@ -824,10 +824,10 @@ def DeletePackages(url):
                     for d in dirs:
                         shutil.rmtree(os.path.join(root, d))
                     dialog = xbmcgui.Dialog()
-                    dialog.ok("[COLOR orange][B]TDB Advanced Settings[/B][/COLOR][COLOR white]Advanced Settings[/COLOR]", "Packages Successfuly Removed", "")
+                    dialog.ok("[COLOR orange][B]TDB [/B][/COLOR][COLOR white]Advanced Settings[/COLOR]", "Packages Successfuly Removed", "")
     except: 
         dialog = xbmcgui.Dialog()
-        dialog.ok("[COLOR orange][B]TDB Advanced Settings[/B][/COLOR][COLOR white]Advanced Settings[/COLOR]", "Sorry we were not able to remove Package Files", "")
+        dialog.ok("[COLOR orange][B]TDB [/B][/COLOR][COLOR white]Advanced Settings[/COLOR]", "Sorry we were not able to remove Package Files", "")
     
 #################################
 ###DELETE CACHE##################
@@ -1029,7 +1029,7 @@ def deletecachefiles(url):
 				
 
     dialog = xbmcgui.Dialog()
-    dialog.ok("[COLOR blue][B]AMO[/B][/COLOR][COLOR green][B]box[/B][/COLOR] [COLOR white]Advanced Settings[/COLOR]", " All Cache Files Removed", "[COLOR yellow]Brought To You By [COLOR blue][B]AMO[/B][/COLOR][COLOR green][B]box[/B][/COLOR][/COLOR]")
+    dialog.ok("[COLOR blue][B]AMO[/B][/COLOR][COLOR green][B]box[/B][/COLOR] [COLOR white]Wizard[/COLOR]", " All Cache Files Removed", "[COLOR yellow]Brought To You By [COLOR blue][B]AMO[/B][/COLOR][COLOR green][B]box[/B][/COLOR][/COLOR]")
  
         
 def OPEN_URL(url):
@@ -1139,7 +1139,7 @@ def FRESHSTART(params):
         xbmc.executebuiltin("ActivateWindow(appearancesettings)")
         return
     else:
-        choice2 = xbmcgui.Dialog().yesno("[COLOR=red]ABSOLUTELY CERTAIN?!!![/COLOR]", 'Are you absolutely certain you want to wipe this install?', '', 'All addons EXCLUDING THIS Advanced Settings will be completely wiped!', yeslabel='[COLOR=red]Yes[/COLOR]',nolabel='[COLOR=green]No[/COLOR]')
+        choice2 = xbmcgui.Dialog().yesno("[COLOR=red]ABSOLUTELY CERTAIN?!!![/COLOR]", 'Are you absolutely certain you want to wipe this install?', '', 'All addons EXCLUDING THIS WIZARD will be completely wiped!', yeslabel='[COLOR=red]Yes[/COLOR]',nolabel='[COLOR=green]No[/COLOR]')
     if choice2 == 0:
         return
     elif choice2 == 1:
@@ -1290,7 +1290,7 @@ elif mode==7:
        DeletePackages(url)
 		
 elif mode==10:
-        ADDONAdvanced Settings(name,url,description)
+        ADDONWIZARD(name,url,description)
 
 elif mode==82:
         print "############   WIPE XBMC   #################"
@@ -1305,6 +1305,6 @@ elif mode==83:
         FIX_SPECIAL(url)
 		
 elif mode==90:
-        Advanced Settings(name,url,description)
+        WIZARD(name,url,description)
 
 xbmcplugin.endOfDirectory(int(sys.argv[1]))
