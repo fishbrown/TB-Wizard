@@ -11,14 +11,6 @@ CHECKVERSION  =  os.path.join(USERDATA,'advancedversion.txt')
 my_addon = xbmcaddon.Addon()
 dp = xbmcgui.DialogProgress()
 checkver=my_addon.getSetting('checkupdates')
-dialog = xbmcgui.Dialog()
-if not os.path.exists(CHECKVERSION):
-		file = open(CHECKVERSION,'w') 
-		file.write("<version>0</version>")
-		file.close()
-checkurl = "https://archive.org/download/tdbadvanced/version_check.txt"
-vers = open(CHECKVERSION, "r")
-regex = re.compile(r'<build>(.+?)</build><version>(.+?)</version>')
 for line in vers:
 	if checkver!='false':
 		currversion = regex.findall(line)
