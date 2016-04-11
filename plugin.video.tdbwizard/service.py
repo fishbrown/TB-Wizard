@@ -69,7 +69,7 @@ for line in vers:
 									Common.KillKodi()
 									
 							else:
-								dialog.ok('[COLOR=orange][B]Thomas Begley[/B][/COLOR][COLOR=white] Wizard[/COLOR]','A FRESH START is required for the update... Run the FRESH START in the NEXT WINDOW then INSTALL the new build version','','')
+								dialog.ok('[COLOR=orange][B]Thomas Begley[/B][/COLOR][COLOR=white] Wizard[/COLOR]','A FRESH START is required for the update... Run the WIPE option in the NEXT WINDOW then INSTALL the new build version','','')
 								xbmc.executebuiltin("RunAddon(plugin.video.tdbwizard)")
 							
 								
