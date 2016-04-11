@@ -1,0 +1,9 @@
+<build>512</build><url>https://archive.org/download/tdbadvanced/512_update.zip</url>
+<build>1</build><url>https://archive.org/download/tdbadvanced/1_update.zip</url>
+<build>0</build><url>https://archive.org/download/tdbadvanced/0_update.zip</url>
+<build>Shield</build><url>https://archive.org/download/tdbadvanced/shield_update.zip</url>
+<build>Example 1</build><url>https://archive.org/download/tdbadvanced/example1_update.zip</url>
+<build>Example 2</build><url>https://archive.org/download/tdbadvanced/example2_update.zip</url>
+<build>Example 3</build><url>https://archive.org/download/tdbadvanced/example3_update.zip</url>
+<build>Example 4</build><url>https://archive.org/download/tdbadvanced/example4_update.zip</url>
+<build>Default</build><url>https://archive.org/download/tdbadvanced/default_update.zip</url>
