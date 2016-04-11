@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addon id="script.tdbmaintenancetool"
-       name="[COLOR orange]TDB[/COLOR] [COLOR wizard] Maintenance Tool[/COLOR]"
+       name="[COLOR orange]TDB[/COLOR][COLOR wizard] Maintenance Tool[/COLOR]"
        version="1.0"
        provider-name="Thomas Begley">
   <requires>
