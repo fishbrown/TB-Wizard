@@ -17,7 +17,7 @@
   </extension>
 </addon>
 
-<addon id="plugin.video.tdbadvanced" name="[COLOR orange]TDB[/COLOR][COLOR wizard] Advanced Settings[/COLOR]" version="1.4" provider-name="Thomas Begley">
+<addon id="plugin.video.tdbadvanced" name="[COLOR orange]TDB[/COLOR][COLOR wizard] Advanced Settings[/COLOR]" version="2.0" provider-name="Thomas Begley">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
 	<import addon="script.module.addon.common" />
@@ -26,7 +26,7 @@
         <provides>executable</provides>
   </extension>
   <extension point="xbmc.service" library="service.py" start="startup">
-  </extension>
+  </extension> 
   <extension point="xbmc.addon.metadata">
     <summary lang="en">[COLOR lime]TDB[/COLOR] Advanced Settings</summary>
     <description lang="en">Tired of constant buffering? Then install Thomas Begleys Official advancedsettings.xml settings for your system.</description>
@@ -34,9 +34,10 @@
   </extension>
 </addon>
 
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addon id="script.tdbmaintenancetool"
        name="[COLOR orange]TDB[/COLOR][COLOR wizard] Maintenance Tool[/COLOR]"
-       version="1.0"
+       version="2.0"
        provider-name="Thomas Begley">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
@@ -46,17 +47,15 @@
   </extension>
   <extension point="xbmc.addon.metadata">
     <summary lang="en">[COLOR lime]TDB[/COLOR] Maintenance Tool</summary>
-    <description lang="en">>
-	Your one stop tool for maintaining your device. 
-	Clear your cache, delete your thumbnails and purge your packages.
-	All in one place.
-	Support: tdbegley28@gmail.com
-    </description>
+    <description lang="en"></description>Your one stop tool for maintaining your device. 
+Clear your cache, delete your thumbnails and purge your packages.
+E-mail: tdbegley28@gmail.com, Facebook: http://tinyurl.com/zf4wekm, GitHub: https://github.com/tdbegley28/TB-Wizard</description>
 	<platform>all</platform>
   </extension>
 </addon>
 
-<addon id="repository.tdbegley.official" name="[COLOR orange]TDB[/COLOR] Builds Repository" version="1.1" provider-name="Thomas Begley">
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="repository.tdbegley.official" name="[COLOR orange]TDB[/COLOR] Builds Repository" version="2.0" provider-name="Thomas Begley">
     <extension point="xbmc.addon.repository" name="thomas begley repository">
         <info compressed="false">http://github.com/tdbegley28/TB-Wizard/raw/master/addons.xml</info>
         <checksum>http://github.com/tdbegley28/TB-Wizard/raw/master/addons.xml.md5</checksum>
@@ -64,7 +63,7 @@
     </extension>
     <extension point="xbmc.addon.metadata">
         <summary>Thomas Begleys Repository</summary>
-        <description>THIS REPO CONTAINS UPDATES FOR THE BUILD WIZARD AND SOME ADDONS.
+        <description>THIS REPO CONTAINS UPDATES FOR TDB WIZARD, TDB ADVANCED SETTINGS & TDB MAINTENANCE TOOL ASWELL AS ANY OTHER ADDONS DISTRIBUTED BY TDB.
         </description>
         <platform>all</platform>
     </extension>
