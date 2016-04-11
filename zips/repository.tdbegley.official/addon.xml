@@ -7,7 +7,7 @@
     </extension>
     <extension point="xbmc.addon.metadata">
         <summary>Thomas Begleys Repository</summary>
-        <description>THIS REPO CONTAINS UPDATES FOR TDB WIZARD, TDB ADVANCED SETTINGS & TDB MAINTENANCE TOOL ASWELL AS ANY OTHER ADDONS DISTRIBUTED BY TDB.
+        <description>THIS REPO CONTAINS UPDATES FOR TDB WIZARD, TDB ADVANCED SETTINGS AND TDB MAINTENANCE TOOL ASWELL AS ANY OTHER ADDONS DISTRIBUTED BY TDB.
         </description>
         <platform>all</platform>
     </extension>
