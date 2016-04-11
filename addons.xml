@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addons>
-<addon id="plugin.video.tdbwizard" name="..[COLOR orange]TDB[/COLOR] [COLOR wizard] Wizard[/COLOR]" version="1.7" provider-name="Thomas Begley">
+<addon id="plugin.video.tdbwizard" name="[COLOR orange]TDB[/COLOR] [COLOR wizard]Wizard[/COLOR]" version="2.0" provider-name="Thomas Begley">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
 	<import addon="script.module.addon.common" />
@@ -17,7 +17,7 @@
   </extension>
 </addon>
 
-<addon id="plugin.video.tdbadvanced" name="..[COLOR orange]TDB[/COLOR] [COLOR wizard] Advanced Settings[/COLOR]" version="1.4" provider-name="Thomas Begley">
+<addon id="plugin.video.tdbadvanced" name="[COLOR orange]TDB[/COLOR][COLOR wizard] Advanced Settings[/COLOR]" version="1.4" provider-name="Thomas Begley">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
 	<import addon="script.module.addon.common" />
@@ -35,7 +35,7 @@
 </addon>
 
 <addon id="script.tdbmaintenancetool"
-       name="..[COLOR orange]TDB[/COLOR] [COLOR wizard] Maintenance Tool[/COLOR]"
+       name="[COLOR orange]TDB[/COLOR][COLOR wizard] Maintenance Tool[/COLOR]"
        version="1.0"
        provider-name="Thomas Begley">
   <requires>
