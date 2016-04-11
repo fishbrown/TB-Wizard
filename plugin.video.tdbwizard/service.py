@@ -48,7 +48,7 @@ for line in vers:
 									name = "build"
 									dp = xbmcgui.DialogProgress()
 
-									dp.create("[COLOR=orange][B]Thomas Begley[/B][/COLOR][COLOR=white] Wizard[/COLOR]","Downloading ",'', 'Please Wait')
+									dp.create("[COLOR=orange][B]TDB[/B][/COLOR][COLOR=white] Wizard[/COLOR]","Downloading ",'', 'Please Wait')
 									lib=os.path.join(path, name+'.zip')
 									try:
 									   os.remove(lib)
@@ -64,12 +64,12 @@ for line in vers:
 									print '======================================='
 									extract.all(lib,addonfolder,dp)
 									dialog = xbmcgui.Dialog()
-									dialog.ok("[COLOR=orange][B]Thomas Begley[/B][/COLOR][COLOR=white] Wizard[/COLOR]", "To save changes you now need to force close Kodi, Press OK to force close Kodi")
+									dialog.ok("[COLOR=orange][B]TDB[/B][/COLOR][COLOR=white] Wizard[/COLOR]", "To save changes you now need to force close Kodi, Press OK to force close Kodi")
 									
 									Common.KillKodi()
 									
 							else:
-								dialog.ok('[COLOR=orange][B]Thomas Begley[/B][/COLOR][COLOR=white] Wizard[/COLOR]','A FRESH START is required for the update... Run the WIPE option in the NEXT WINDOW then INSTALL the new build version','','')
+								dialog.ok('[COLOR=orange][B]TDB[/B][/COLOR][COLOR=white] Wizard[/COLOR]','A FRESH START is required for the update... Run the WIPE option in the NEXT WINDOW then INSTALL the new build version','','')
 								xbmc.executebuiltin("RunAddon(plugin.video.tdbwizard)")
 							
 								
