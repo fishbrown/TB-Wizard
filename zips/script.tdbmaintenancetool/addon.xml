@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="script.tdbmaintenancetool"
+       name="[COLOR orange]TDB[/COLOR] [COLOR wizard] Maintenance Tool[/COLOR]"
+       version="1.0"
+       provider-name="Thomas Begley">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>executable</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">[COLOR lime]TDB[/COLOR] Maintenance Tool</summary>
+    <description lang="en">>
+	Your one stop tool for maintaining your device. 
+	Clear your cache, delete your thumbnails and purge your packages.
+	All in one place.
+	Support: tdbegley28@gmail.com
+    </description>
+	<platform>all</platform>
+  </extension>
+</addon>
