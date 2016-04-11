@@ -34,7 +34,6 @@
   </extension>
 </addon>
 
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addon id="script.tdbmaintenancetool"
        name="[COLOR orange]TDB[/COLOR][COLOR wizard] Maintenance Tool[/COLOR]"
        version="2.0"
@@ -54,7 +53,6 @@ E-mail: tdbegley28@gmail.com, Facebook: http://tinyurl.com/zf4wekm, GitHub: http
   </extension>
 </addon>
 
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addon id="repository.tdbegley.official" name="[COLOR orange]TDB[/COLOR] Builds Repository" version="2.0" provider-name="Thomas Begley">
     <extension point="xbmc.addon.repository" name="thomas begley repository">
         <info compressed="false">http://github.com/tdbegley28/TB-Wizard/raw/master/addons.xml</info>
