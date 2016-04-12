@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="plugin.video.tdbwizard" name="[COLOR blue]TDB[/COLOR] [COLOR lime]Wizard[/COLOR]" version="3.1" provider-name="Thomas Begley">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+    <import addon="script.module.addon.common" />
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>executable</provides>
+  </extension>
+  <extension point="xbmc.service" library="service.py" start="startup">
+  </extension> 
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">[COLOR blue]TDB[/COLOR] [COLOR lime]Wizard[/COLOR]</summary>
+    <description lang="en">Install TDB official builds, manager your advancedsettings.xml file to limit buffering and maintain your system by deleting your cache and packages folder using the maintenance tool.</description>
+    <platform>all</platform>
+  </extension>
+</addon>
