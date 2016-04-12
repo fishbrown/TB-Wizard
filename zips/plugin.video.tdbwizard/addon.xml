@@ -3,8 +3,6 @@
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="script.module.addon.common" />
-    <import addon="plugin.video.tdbadvanced" version="2.0"/>
-    <import addon="script.tdbmaintenancetool" version="2.0"/>
   </requires>
   <extension point="xbmc.python.pluginsource" library="default.py">
         <provides>executable</provides>
