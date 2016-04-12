@@ -6,12 +6,15 @@ import downloader
 import re
 import time
 import common as Common
+
 USERDATA     =  xbmc.translatePath(os.path.join('special://home/userdata',''))
 CHECKVERSION  =  os.path.join(USERDATA,'version.txt')
+WIPE  =  os.path.join(USERDATA,'wipe.xml')
 my_addon = xbmcaddon.Addon()
 dp = xbmcgui.DialogProgress()
 checkver=my_addon.getSetting('checkupdates')
 dialog = xbmcgui.Dialog()
+AddonTitle="[COLOR orange]TDB[/COLOR] [COLOR white]Wizard[/COLOR]"
 if not os.path.exists(CHECKVERSION):
 		file = open(CHECKVERSION,'w') 
 		file.write("<version>0</version>")
@@ -48,7 +51,7 @@ for line in vers:
 									name = "build"
 									dp = xbmcgui.DialogProgress()
 
-									dp.create("[COLOR=orange][B]TDB[/B][/COLOR][COLOR=white] Wizard[/COLOR]","Downloading ",'', 'Please Wait')
+									dp.create(AddonTitle,"Downloading ",'', 'Please Wait')
 									lib=os.path.join(path, name+'.zip')
 									try:
 									   os.remove(lib)
@@ -64,14 +67,21 @@ for line in vers:
 									print '======================================='
 									extract.all(lib,addonfolder,dp)
 									dialog = xbmcgui.Dialog()
-									dialog.ok("[COLOR=orange][B]TDB[/B][/COLOR][COLOR=white] Wizard[/COLOR]", "To save changes you now need to force close Kodi, Press OK to force close Kodi")
+									dialog.ok(AddonTitle, "To save changes you now need to force close Kodi, Press OK to force close Kodi")
 									
 									Common.KillKodi()
 									
 							else:
-								dialog.ok('[COLOR=orange][B]TDB[/B][/COLOR][COLOR=white] Wizard[/COLOR]','A FRESH START is required for the update... Run the WIPE option in the NEXT WINDOW then INSTALL the new build version','','')
+								dialog.ok(AddonTitle,'[COLOR red]A WIPE (FACTORY RESET)[/COLOR] is required for the update... Run the [COLOR red]WIPE[/COLOR] option in the NEXT WINDOW then INSTALL the new build version','','')
 								xbmc.executebuiltin("RunAddon(plugin.video.tdbwizard)")
 							
-								
+if os.path.exists(WIPE):
+	choice = xbmcgui.Dialog().yesno(AddonTitle, 'A [COLOR green]WIPE[/COLOR] has been performed and Kodi has returned to [COLOR green]FACTORY SETTINGS![/COLOR]', ' ', '[COLOR orange]DO YOU WANT TO INSTALL A BUILD NOW?[/COLOR]', yeslabel='[COLOR green]YES[/COLOR]',nolabel='[COLOR red]NO[/COLOR]')
+	if choice == 1: 
+		os.remove(WIPE)
+		xbmc.executebuiltin("RunAddon(plugin.video.tdbwizard)")
+	else:
+		os.remove(WIPE)
+
 ## ################################################## ##
 ## ################################################## ##
