@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addons>
-<addon id="plugin.video.tdbwizard" name="[COLOR orange]TDB[/COLOR] [COLOR wizard]Wizard[/COLOR]" version="3.0" provider-name="Thomas Begley">
+<addon id="plugin.video.tdbwizard" name="[COLOR blue]TDB[/COLOR] [COLOR lime]Wizard[/COLOR]" version="3.1" provider-name="Thomas Begley">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="script.module.addon.common" />
@@ -11,55 +11,10 @@
   <extension point="xbmc.service" library="service.py" start="startup">
   </extension> 
   <extension point="xbmc.addon.metadata">
-    <summary lang="en">[COLOR lime]TDB[/COLOR] Wizard</summary>
+    <summary lang="en">[COLOR blue]TDB[/COLOR] [COLOR lime]Wizard[/COLOR]</summary>
     <description lang="en">Install TDB official builds, manager your advancedsettings.xml file to limit buffering and maintain your system by deleting your cache and packages folder using the maintenance tool.</description>
     <platform>all</platform>
   </extension>
-</addon>
-
-<addon id="plugin.video.tdbadvanced" name="[COLOR orange]TDB[/COLOR][COLOR wizard] Advanced Settings[/COLOR]" version="2.0" provider-name="Thomas Begley">
-  <requires>
-    <import addon="xbmc.python" version="2.1.0"/>
-	<import addon="script.module.addon.common" />
-  </requires>
-  <extension point="xbmc.python.pluginsource" library="default.py">
-        <provides>executable</provides>
-  </extension>
-  <extension point="xbmc.service" library="service.py" start="startup">
-  </extension> 
-  <extension point="xbmc.addon.metadata">
-    <summary lang="en">[COLOR lime]TDB[/COLOR] Advanced Settings</summary>
-    <description lang="en">Tired of constant buffering? Then install Thomas Begleys Official advancedsettings.xml settings for your system.</description>
-    <platform>all</platform>
-  </extension>
-</addon>
-
-<addon id="script.tdbmaintenancetool" name="[COLOR orange]TDB[/COLOR] [COLOR wizard]Maintenance Tool[/COLOR]" version="2.0" provider-name="Thomas Begley">
-  <requires>
-    <import addon="xbmc.python" version="2.1.0"/>
-  </requires>
-  <extension point="xbmc.python.pluginsource" library="default.py">
-        <provides>executable</provides>
-  </extension>
-  <extension point="xbmc.addon.metadata">
-    <summary lang="en">[COLOR lime]TDB[/COLOR] Maintenance Tool</summary>
-    <description lang="en">Your one stop tool for maintaining your device. Clear your cache, delete your thumbnails and purge your packages.</description>
-    <platform>all</platform>
-  </extension>
-</addon>
-
-<addon id="repository.tdbegley.official" name="[COLOR orange]TDB[/COLOR] Builds Repository" version="2.0" provider-name="Thomas Begley">
-    <extension point="xbmc.addon.repository" name="thomas begley repository">
-        <info compressed="false">http://github.com/tdbegley28/TB-Wizard/raw/master/addons.xml</info>
-        <checksum>http://github.com/tdbegley28/TB-Wizard/raw/master/addons.xml.md5</checksum>
-        <datadir zip="true">http://github.com/tdbegley28/TB-Wizard/raw/master/zips/</datadir>
-    </extension>
-    <extension point="xbmc.addon.metadata">
-        <summary>Thomas Begleys Repository</summary>
-        <description>THIS REPO CONTAINS UPDATES FOR TDB WIZARD, TDB ADVANCED SETTINGS AND TDB MAINTENANCE TOOL ASWELL AS ANY OTHER ADDONS DISTRIBUTED BY TDB.
-        </description>
-        <platform>all</platform>
-    </extension>
 </addon>
 
 <addon id="script.module.addon.common"
@@ -83,5 +38,19 @@
     <email></email>
     <source></source>
   </extension>
+</addon>
+
+<addon id="repository.tdbegley.official" name="[COLOR orange]TDB[/COLOR] Builds Repository" version="2.0" provider-name="Thomas Begley">
+    <extension point="xbmc.addon.repository" name="thomas begley repository">
+        <info compressed="false">http://github.com/tdbegley28/TB-Wizard/raw/master/addons.xml</info>
+        <checksum>http://github.com/tdbegley28/TB-Wizard/raw/master/addons.xml.md5</checksum>
+        <datadir zip="true">http://github.com/tdbegley28/TB-Wizard/raw/master/zips/</datadir>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <summary>Thomas Begleys Repository</summary>
+        <description>THIS REPO CONTAINS UPDATES FOR TDB WIZARD, TDB ADVANCED SETTINGS AND TDB MAINTENANCE TOOL ASWELL AS ANY OTHER ADDONS DISTRIBUTED BY TDB.
+        </description>
+        <platform>all</platform>
+    </extension>
 </addon>
 </addons>
