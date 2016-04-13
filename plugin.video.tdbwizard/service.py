@@ -14,7 +14,7 @@ my_addon = xbmcaddon.Addon()
 dp = xbmcgui.DialogProgress()
 checkver=my_addon.getSetting('checkupdates')
 dialog = xbmcgui.Dialog()
-AddonTitle="[COLOR orange]TDB[/COLOR] [COLOR white]Wizard[/COLOR]"
+AddonTitle="[COLOR blue]TDB[/COLOR] [COLOR lime]Wizard[/COLOR]"
 if not os.path.exists(CHECKVERSION):
 		file = open(CHECKVERSION,'w') 
 		file.write("<version>0</version>")

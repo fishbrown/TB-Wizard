@@ -11,11 +11,19 @@ from addon.common.net import Net
 import CheckPath
 import zipfile
 import ntpath
+import errno
 
+thumbnailPath = xbmc.translatePath('special://userdata/Thumbnails');
+cachePath = os.path.join(xbmc.translatePath('special://home'), 'cache')
+tempPath = xbmc.translatePath('special://temp')
+addonPath = os.path.join(os.path.join(xbmc.translatePath('special://home'), 'addons'),'script.tdbmaintenancetool')
+mediaPath = os.path.join(addonPath, 'resources/art')
+databasePath = xbmc.translatePath('special:///userdata/Database')
 addon_id = 'plugin.video.tdbwizard'
 ADDON = xbmcaddon.Addon(id=addon_id)
 AddonID='plugin.video.tdbwizard'
-AddonTitle="[COLOR orange]TDB[/COLOR] [COLOR white]Wizard[/COLOR]"
+AddonTitle="[COLOR blue]TDB[/COLOR] [COLOR lime]Wizard[/COLOR]"
+MaintTitle="[COLOR blue]TDB[/COLOR] [COLOR lime]Maintenance Tool[/COLOR]"
 dialog       =  xbmcgui.Dialog()
 net = Net()
 HOME         =  xbmc.translatePath('special://home/')
@@ -86,6 +94,11 @@ class Gui(xbmcgui.WindowXMLDialog):
 
 path   = xbmcaddon.Addon().getAddonInfo('path').decode("utf-8")
 
+class cacheEntry:
+    def __init__(self, namei, pathi):
+        self.name = namei
+        self.path = pathi
+		
 ############################
 ###GET PARAMS###############
 ############################
@@ -107,7 +120,35 @@ def get_params():
                                 param[splitparams[0]]=splitparams[1]
                                 
         return param
+		
+#######################################################################
+#						Add to menus
+#######################################################################
 
+def addLink(name,url,iconimage):
+	ok=True
+	liz=xbmcgui.ListItem(name, iconImage="DefaultVideo.png", thumbnailImage=iconimage)
+	liz.setInfo( type="Video", infoLabels={ "Title": name } )
+	ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=url,listitem=liz)
+	return ok
+
+
+def addDirM(name,url,mode,iconimage):
+	u=sys.argv[0]+"?url="+urllib.quote_plus(url)+"&mode="+str(mode)+"&name="+urllib.quote_plus(name)
+	ok=True
+	liz=xbmcgui.ListItem(name, iconImage="DefaultFolder.png", thumbnailImage=iconimage)
+	liz.setInfo( type="Video", infoLabels={ "Title": name } )
+	ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=u,listitem=liz,isFolder=True)
+	return ok
+	
+def addItem(name,url,mode,iconimage):
+	u=sys.argv[0]+"?url="+urllib.quote_plus(url)+"&mode="+str(mode)+"&name="+urllib.quote_plus(name)
+	ok=True
+	liz=xbmcgui.ListItem(name, iconImage="DefaultFolder.png", thumbnailImage=iconimage)
+	liz.setInfo( type="Video", infoLabels={ "Title": name } )
+	ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=u,listitem=liz,isFolder=False)
+	return ok
+	
 ############################
 ###ROOT MENU OF ADDON#######
 ############################
@@ -115,19 +156,29 @@ def get_params():
 def INDEX():
 	if not os.path.exists(backupdir):
 		os.makedirs(backupdir)
-	addDir('[B]STEP 1 - [COLOR red]WIPE SYSTEM READY [COLOR white][I](Performes a factory reset and deletes everything)[/I][/COLOR][/B][/COLOR]','url',6,ART+'freshstart.png',FANART,'')
-	addDir('[B]STEP 2 - [COLOR lime]INSTALL A [COLOR orange]TDB[/COLOR] [COLOR white]BUILD [I](Horus, Hephaestus or Poseidon)[/I][/COLOR][/B][/COLOR]',BASEURL,20,ART+'wizard.png',FANART,'')
-	addDir('[B]STEP 3 - [COLOR orange]LAUNCH ADVANCED SETTINGS ADDON [COLOR white][I](Helps with buffering issues)[/I][/COLOR][/B][/COLOR]',BASEURL,30,ART+'advanced.png',FANART,'')
-	addDir('[B]STEP 4 - [COLOR blue]LAUNCH MAINTENANCE TOOL [COLOR white][I](Clear cache, purge packages etc)[/I][/COLOR][/B][/COLOR]',BASEURL,10,ART+'maintenance.png',FANART,'')
+	addDir('[B]STEP 1 - [COLOR red]WIPE SYSTEM READY [COLOR white][I](Performes a factory reset and deletes everything)[/I][/COLOR][/B][/COLOR]','url',6,ART+'wipe.png',FANART,'')
+	addDir('[B]STEP 2 - [COLOR lime]INSTALL A [COLOR blue]TDB[/COLOR] [COLOR white]BUILD [I](Horus, Hephaestus or Poseidon)[/I][/COLOR][/B][/COLOR]',BASEURL,20,ART+'install.png',FANART,'')
+	addDir('[B]STEP 3 - [COLOR orange]ADVANCED SETTINGS TOOL [COLOR white][I](Helps with buffering issues)[/I][/COLOR][/B][/COLOR]',BASEURL,30,ART+'advanced.png',FANART,'')
+	addDir('[B]STEP 4 - [COLOR blue]MAINTENANCE TOOL [COLOR white][I](Clear cache, purge packages etc)[/I][/COLOR][/B][/COLOR]',BASEURL,5,ART+'maintenance.png',FANART,'')
+	addDir('[B][COLOR brown][I]NEWS[/I][/COLOR][/B]',BASEURL,7,ART+'news.png',FANART,'')
+	addDir('[B][COLOR purple][I]SUPPORT[/I][/COLOR][/B]',BASEURL,8,ART+'support.png',FANART,'')
+	addDir('[B][COLOR yellow][I]SETTINGS[/I][/COLOR][/B]',BASEURL,9,ART+'settings.png',FANART,'')
+
 
 def BUILDMENU():
     
     link = OPEN_URL('https://archive.org/download/wizard_rel_201604/wizard_rel.txt').replace('\n','').replace('\r','')
     match = re.compile('name="(.+?)".+?rl="(.+?)".+?mg="(.+?)".+?anart="(.+?)".+?ersion="(.+?)"').findall(link)
     for name,url,iconimage,fanart,description in match:
-        addDir(name + " ver:" + description,url,90,iconimage,fanart,description)
-    #setView('movies', 'MAIN')
+        addDir(name + " ver:" + description,url,90,ART+name+'.png',FANART,description)
 
+def ADVANCEDSETTINGS():
+    
+    link = OPEN_URL('https://archive.org/download/tdbadvanced/wizard_rel.txt').replace('\n','').replace('\r','')
+    match = re.compile('name="(.+?)".+?rl="(.+?)".+?mg="(.+?)".+?anart="(.+?)".+?ersion="(.+?)"').findall(link)
+    for name,url,iconimage,fanart,description in match:
+        addDir(name + " ver:" + description,url,90,ART+'advanced/'+description+'.png',FANART,description)
+		
 def Addon_Settings():
     ADDON.openSettings(sys.argv[0])
 
@@ -237,6 +288,23 @@ try:
         video=urllib.unquote_plus(params["video"])
 except:
         pass
+		
+#######################################################################
+#                           NEWS
+#######################################################################
+
+def NewsText():
+    
+    dialog = xbmcgui.Dialog()
+    dialog.ok(AddonTitle, "[B][I]TDB WIZARD[/B][/I] | KODI | SPMC | XBMC | Builds & Support", "[COLOR lime][B][I]GitHub[/COLOR][/B][/I] : https://github.com/tdbegley28/TB-Wizard", "[COLOR lime][B][I]Facebook[/COLOR][/B][/I] : http://tinyurl.com/zf4wekm ")
+	
+#######################################################################
+#                       Support
+#######################################################################
+def SupportText():
+    
+    dialog = xbmcgui.Dialog()
+    dialog.ok(AddonTitle, "[B][I]TDB WIZARD[/B][/I] | KODI | SPMC | XBMC | Builds & Support", "[COLOR lime][B][I]GitHub[/COLOR][/B][/I] : https://github.com/tdbegley28/TB-Wizard", "[COLOR lime][B][I]Facebook[/COLOR][/B][/I] : http://tinyurl.com/zf4wekm ")
 
 ############################
 ###FRESH START##############
@@ -272,7 +340,7 @@ def FRESHSTART(params):
     killxbmc()
 
 ############################
-###WIZARD###################
+###INSTALL BUILD############
 ############################
 
 def WIZARD(name,url,description):
@@ -304,6 +372,189 @@ def WIZARD(name,url,description):
     dialog.ok(AddonTitle, "To save changes you now need to force close Kodi, Press OK to force close Kodi")
     
     killxbmc()
+	
+#######################################################################
+#						Maintenance Menu
+#######################################################################
+	
+def maintMenu():
+    addItem('[B][I][COLOR blue]Clear Cache[/B][/I][/COLOR]','url', 1,os.path.join(ART, "cache.png"))
+    addItem('[B][I][COLOR blue]Delete Thumbnails[/B][/I][/COLOR]', 'url', 2,os.path.join(ART, "thumbs.png"))
+    addItem('[B][I][COLOR blue]Purge Packages[/B][/I][/COLOR]', 'url', 3,os.path.join(ART, "packages.png"))
+	
+#######################################################################
+#						Maintenance Functions
+#######################################################################
+def setupCacheEntries():
+    entries = 5 #make sure this refelcts the amount of entries you have
+    dialogName = ["WTF", "4oD", "BBC iPlayer", "Simple Downloader", "ITV"]
+    pathName = ["special://profile/addon_data/plugin.video.whatthefurk/cache", "special://profile/addon_data/plugin.video.4od/cache",
+					"special://profile/addon_data/plugin.video.iplayer/iplayer_http_cache","special://profile/addon_data/script.module.simple.downloader",
+                    "special://profile/addon_data/plugin.video.itv/Images"]
+                    
+    cacheEntries = []
+    
+    for x in range(entries):
+        cacheEntries.append(cacheEntry(dialogName[x],pathName[x]))
+    
+    return cacheEntries
+
+
+def clearCache():
+    
+    if os.path.exists(cachePath)==True:    
+        for root, dirs, files in os.walk(cachePath):
+            file_count = 0
+            file_count += len(files)
+            if file_count > 0:
+
+                dialog = xbmcgui.Dialog()
+                if dialog.yesno("Delete Kodi Cache Files", str(file_count) + " files found", "Do you want to delete them?"):
+                
+                    for f in files:
+                        try:
+							if (f == "xbmc.log" or f == "xbmc.old.log" or f =="kodi.log" or f == "kodi.old.log" or f == "spmc.log" or f == "spmc.old.log"): continue
+							os.unlink(os.path.join(root, f))
+                        except:
+                            pass
+                    for d in dirs:
+                        try:
+                            shutil.rmtree(os.path.join(root, d))
+                        except:
+                            pass
+                        
+            else:
+                pass
+    if os.path.exists(tempPath)==True:    
+        for root, dirs, files in os.walk(tempPath):
+            file_count = 0
+            file_count += len(files)
+            if file_count > 0:
+                dialog = xbmcgui.Dialog()
+                if dialog.yesno("Delete Kodi Temp Files", str(file_count) + " files found", "Do you want to delete them?"):
+                    for f in files:
+                        try:
+                            if (f == "kodi.log" or f == "kodi.old.log"): continue
+                            os.unlink(os.path.join(root, f))
+                        except:
+                            pass
+                    for d in dirs:
+                        try:
+                            shutil.rmtree(os.path.join(root, d))
+                        except:
+                            pass
+                        
+            else:
+                pass
+    if xbmc.getCondVisibility('system.platform.ATV2'):
+        atv2_cache_a = os.path.join('/private/var/mobile/Library/Caches/AppleTV/Video/', 'Other')
+        
+        for root, dirs, files in os.walk(atv2_cache_a):
+            file_count = 0
+            file_count += len(files)
+        
+            if file_count > 0:
+
+                dialog = xbmcgui.Dialog()
+                if dialog.yesno("Delete ATV2 Cache Files", str(file_count) + " files found in 'Other'", "Do you want to delete them?"):
+                
+                    for f in files:
+                        os.unlink(os.path.join(root, f))
+                    for d in dirs:
+                        shutil.rmtree(os.path.join(root, d))
+                        
+            else:
+                pass
+        atv2_cache_b = os.path.join('/private/var/mobile/Library/Caches/AppleTV/Video/', 'LocalAndRental')
+        
+        for root, dirs, files in os.walk(atv2_cache_b):
+            file_count = 0
+            file_count += len(files)
+        
+            if file_count > 0:
+
+                dialog = xbmcgui.Dialog()
+                if dialog.yesno("Delete ATV2 Cache Files", str(file_count) + " files found in 'LocalAndRental'", "Do you want to delete them?"):
+                
+                    for f in files:
+                        os.unlink(os.path.join(root, f))
+                    for d in dirs:
+                        shutil.rmtree(os.path.join(root, d))
+                        
+            else:
+                pass    
+                
+    cacheEntries = setupCacheEntries()
+                                         
+    for entry in cacheEntries:
+        clear_cache_path = xbmc.translatePath(entry.path)
+        if os.path.exists(clear_cache_path)==True:    
+            for root, dirs, files in os.walk(clear_cache_path):
+                file_count = 0
+                file_count += len(files)
+                if file_count > 0:
+
+                    dialog = xbmcgui.Dialog()
+                    if dialog.yesno(MaintTitle,str(file_count) + "%s cache files found"%(entry.name), "Do you want to delete them?"):
+                        for f in files:
+                            os.unlink(os.path.join(root, f))
+                        for d in dirs:
+                            shutil.rmtree(os.path.join(root, d))
+                            
+                else:
+                    pass
+                
+
+    dialog = xbmcgui.Dialog()
+    dialog.ok(MaintTitle, "Done Clearing Cache files")
+    
+    
+def deleteThumbnails():
+    
+    if os.path.exists(thumbnailPath)==True:  
+            dialog = xbmcgui.Dialog()
+            if dialog.yesno("Delete Thumbnails", "This option deletes all thumbnails", "Are you sure you want to do this?"):
+                for root, dirs, files in os.walk(thumbnailPath):
+                    file_count = 0
+                    file_count += len(files)
+                    if file_count > 0:                
+                        for f in files:
+                            try:
+                                os.unlink(os.path.join(root, f))
+                            except:
+								pass
+    else:
+        pass
+    
+    text13 = os.path.join(databasePath,"Textures13.db")
+    try:
+		os.unlink(text13)
+    except OSError:
+        pass
+		
+	dialog.ok("Restart Kodi", "Please restart Kodi to rebuild thumbnail library")
+
+def purgePackages():
+    
+    purgePath = xbmc.translatePath('special://home/addons/packages')
+    dialog = xbmcgui.Dialog()
+    for root, dirs, files in os.walk(purgePath):
+            file_count = 0
+            file_count += len(files)
+    if dialog.yesno("Delete Package Cache Files", "%d packages found."%file_count, "Delete Them?"):  
+        for root, dirs, files in os.walk(purgePath):
+            file_count = 0
+            file_count += len(files)
+            if file_count > 0:            
+                for f in files:
+                    os.unlink(os.path.join(root, f))
+                for d in dirs:
+                    shutil.rmtree(os.path.join(root, d))
+                dialog = xbmcgui.Dialog()
+                dialog.ok(MaintTitle, "Deleting Packages all done")
+            else:
+                dialog = xbmcgui.Dialog()
+                dialog.ok(MaintTitle, "No Packages to Purge")
 
 ############################
 ###OPEN URL#################
@@ -495,17 +746,38 @@ def setView(content, viewType):
 if mode==None or url==None or len(url)<1:
         INDEX()
 
+elif mode==1:
+		clearCache()
+        
+elif mode==2:
+		deleteThumbnails()
+
+elif mode==3:
+		purgePackages()
+		
+elif mode==5:
+        maintMenu()
+		
+elif mode==7:
+        NewsText()
+		
+elif mode==8:
+        SupportText()
+		
+elif mode==9:
+        Addon_Settings()
+		
 elif mode==20:
         BUILDMENU()
 
 elif mode==6:        
-	FRESHSTART(params)
+		FRESHSTART(params)
 	
 elif mode==30:
-       xbmc.executebuiltin("RunAddon(plugin.video.tdbadvanced)")
+		ADVANCEDSETTINGS()
 		
 elif mode==10:
-       xbmc.executebuiltin("RunAddon(script.tdbmaintenancetool)")
+		MAINTENANCE()
 	
 elif mode==85:
         print "############   ATTEMPT TO KILL XBMC/KODI   #################"
