@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="repository.tdbegley.official" name="[COLOR orange]TDB[/COLOR] Builds Repository" version="2.1" provider-name="Thomas Begley">
+<addon id="repository.tdbegley.official" name="[COLOR black].. [COLOR blue]TDB[/COLOR] [COLOR lime]Builds Repository[/COLOR]" version="2.1" provider-name="Thomas Begley">
     <extension point="xbmc.addon.repository" name="thomas begley repository">
         <info compressed="false">http://github.com/tdbegley28/TB-Wizard/raw/master/addons.xml</info>
         <checksum>http://github.com/tdbegley28/TB-Wizard/raw/master/addons.xml.md5</checksum>
