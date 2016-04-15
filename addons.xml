@@ -2,9 +2,14 @@
 <addons>
 <addon id="plugin.video.tdbwizard" name="[COLOR blue]TDB[/COLOR] [COLOR lime]Wizard[/COLOR]" version="3.3" provider-name="Thomas Begley">
   <requires>
-    <import addon="xbmc.python" version="2.1.0"/>
-    <import addon="script.module.addon.common" />
-  </requires>
+  	<import addon="xbmc.python" version="2.1.0"/>
+	<import addon="script.module.addon.common" />
+	<import addon="script.matchcenter" />
+	<import addon="script.module.requests" />
+	<import addon="script.module.thesportsdb" version="1.0.1"/>
+	<import addon="script.module.pytz" version="2014.2"/>
+	<import addon="script.module.twitter" version="1.17.1"/>
+       </requires>
   <extension point="xbmc.python.pluginsource" library="default.py">
         <provides>executable</provides>
   </extension>
