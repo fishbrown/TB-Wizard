@@ -3,7 +3,7 @@
 <addon id="plugin.video.tdbwizard" name="[COLOR blue]TDB[/COLOR] [COLOR lime]Wizard[/COLOR]" version="3.4" provider-name="Thomas Begley">
   <requires>
   	<import addon="xbmc.python" version="2.1.0"/>
-	<import addon="script.module.addon.common" />
+  	<import addon="script.module.addon.common" />
 	<import addon="script.matchcenter" />
 	<import addon="script.module.requests" />
 	<import addon="script.module.thesportsdb" version="1.0.1"/>
@@ -19,29 +19,6 @@
     <summary lang="en">[COLOR blue]TDB[/COLOR] [COLOR lime]Wizard[/COLOR]</summary>
     <description lang="en">Install TDB official builds, manager your advancedsettings.xml file to limit buffering and maintain your system by deleting your cache and packages folder using the maintenance tool.</description>
     <platform>all</platform>
-  </extension>
-</addon>
-
-<addon id="script.module.addon.common"
-	     name="Common addon methods"
-	     version="2.0.1"
-	     provider-name="Eldorado (original: t0mm0)">
-  <requires>
-    <import addon="xbmc.python" version="2.1.0" />
-  </requires>
-  <extension point="xbmc.python.module" library="lib" />
-  <extension point="xbmc.addon.metadata">
-    <platform>all</platform>
-    <summary lang="en">Collection of commonly used addon routines</summary>
-    <description lang="en">Collection of commonly used addon routines to simplify addon development.</description>
-    <disclaimer lang="en"></disclaimer>
-    <language></language>
-    <platform>all</platform>
-    <license>GNU GENERAL PUBLIC LICENSE. Version 2, June 1991</license>
-    <forum></forum>
-    <website></website>
-    <email></email>
-    <source></source>
   </extension>
 </addon>
 
