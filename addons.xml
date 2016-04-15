@@ -17,7 +17,7 @@
   </extension> 
   <extension point="xbmc.addon.metadata">
     <summary lang="en">[COLOR blue]TDB[/COLOR] [COLOR lime]Wizard[/COLOR]</summary>
-    <description lang="en">Install TDB official builds, manager your advancedsettings.xml file to limit buffering and maintain your system by deleting your cache and packages folder using the maintenance tool.</description>
+    <description lang="en">Install TDB official builds, manager your advancedsettings.xml file to limit buffering and maintain your system by deleting your cache and packages folder using the maintenance tool. You can also check where to watch the footy games and check the latest scores and tables.</description>
     <platform>all</platform>
   </extension>
 </addon>
