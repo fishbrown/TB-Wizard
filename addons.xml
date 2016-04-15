@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addons>
-<addon id="plugin.video.tdbwizard" name="[COLOR blue]TDB[/COLOR] [COLOR lime]Wizard[/COLOR]" version="3.3" provider-name="Thomas Begley">
+<addon id="plugin.video.tdbwizard" name="[COLOR blue]TDB[/COLOR] [COLOR lime]Wizard[/COLOR]" version="3.4" provider-name="Thomas Begley">
   <requires>
   	<import addon="xbmc.python" version="2.1.0"/>
 	<import addon="script.module.addon.common" />
@@ -24,7 +24,7 @@
 
 <addon id="script.module.addon.common"
 	     name="Common addon methods"
-	     version="2.0.0"
+	     version="2.0.1"
 	     provider-name="Eldorado (original: t0mm0)">
   <requires>
     <import addon="xbmc.python" version="2.1.0" />
