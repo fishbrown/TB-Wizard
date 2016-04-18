@@ -1,20 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addons>
-<addon id="plugin.video.tdbwizard" name="[COLOR blue]TDB[/COLOR] [COLOR lime]Wizard[/COLOR]" version="5.3.0" provider-name="TDB">
+<addon id="plugin.video.tdbwizard" 
+	     name="[COLOR blue]TDB[/COLOR] [COLOR lime]Wizard[/COLOR]" 
+	     version="5.3.1" 
+	     provider-name="TDB">
   <requires>
   	<import addon="xbmc.python" version="2.1.0"/>
-  	<import addon="script.module.addon.common" />
-  	<import addon="script.module.requests" />
-       </requires>
+	<import addon="script.module.addon.common" />
+	<import addon="script.module.requests" />
+  </requires>
   <extension point="xbmc.python.pluginsource" library="default.py">
         <provides>executable</provides>
   </extension>
   <extension point="xbmc.service" library="service.py" start="startup">
   </extension> 
   <extension point="xbmc.addon.metadata">
+    <platform>all</platform>
     <summary lang="en">[COLOR blue]TDB[/COLOR] [COLOR lime]Wizard[/COLOR]</summary>
     <description lang="en">Install TDB official builds, manager your advancedsettings.xml file to limit buffering and maintain your system by deleting your cache and packages folder using the maintenance tool. You can also check where to watch the footy games and check the latest scores and tables.</description>
+    <disclaimer lang="en"></disclaimer>
+    <language></language>
     <platform>all</platform>
+    <license>GNU GENERAL PUBLIC LICENSE. Version 2, June 1991</license>
+    <forum></forum>
+    <website>http://tinyurl.com/zf4wekm</website>
+    <email>tdbegley28@gmail.com</email>
+    <source>https://github.com/tdbegley28</source>  
   </extension>
 </addon>
 
