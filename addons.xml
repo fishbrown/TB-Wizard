@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addons>
-<addon id="plugin.video.tdbwizard" name="[COLOR blue]TDB[/COLOR] [COLOR lime]Wizard[/COLOR]" version="4.9" provider-name="Thomas Begley">
+<addon id="plugin.video.tdbwizard" name="[COLOR blue]TDB[/COLOR] [COLOR lime]Wizard[/COLOR]" version="5.0" provider-name="Thomas Begley">
   <requires>
   	<import addon="xbmc.python" version="2.1.0"/>
   	<import addon="script.module.addon.common" />
+  	<import addon="script.module.requests" />
        </requires>
   <extension point="xbmc.python.pluginsource" library="default.py">
         <provides>executable</provides>
