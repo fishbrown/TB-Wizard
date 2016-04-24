@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addons>
 <addon id="plugin.video.tdbwizard" 
-	     name="[COLOR blue]TDB[/COLOR] [COLOR lime]Wizard[/COLOR]" 
+	     name="[COLOR blue]ghostwhite[/COLOR] [COLOR lightsteelblue]Wizard[/COLOR]" 
 	     version="5.4.6" 
 	     provider-name="TDB Wizard">
   <requires>
@@ -16,7 +16,7 @@
   </extension> 
   <extension point="xbmc.addon.metadata">
     <platform>all</platform>
-    <summary lang="en">[COLOR blue]TDB[/COLOR] [COLOR lime]Wizard[/COLOR]</summary>
+    <summary lang="en">[COLOR ghostwhite]TDB[/COLOR] [COLOR lightsteelblue]Wizard[/COLOR]</summary>
     <description lang="en">Install TDB official builds, manage your advancedsettings.xml file to limit buffering and maintain your system by deleting your cache and packages folder using the maintenance tool. You can also check where to watch the footy games, update your build and test your internet speed.</description>
     <disclaimer lang="en"></disclaimer>
     <language></language>
