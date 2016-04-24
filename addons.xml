@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addons>
 <addon id="plugin.video.tdbwizard" 
-	     name="[COLOR blue]ghostwhite[/COLOR] [COLOR lightsteelblue]Wizard[/COLOR]" 
-	     version="5.4.6" 
+	     name="[COLOR ghostwhite]TDB[/COLOR] [COLOR lightsteelblue]Wizard[/COLOR]" 
+	     version="5.4.7" 
 	     provider-name="TDB Wizard">
   <requires>
   	<import addon="xbmc.python" version="2.1.0"/>
@@ -52,7 +52,7 @@
   </extension>
 </addon>
 
-<addon id="repository.tdbegley.official" name="[COLOR black].. [COLOR blue]TDB[/COLOR] [COLOR lime]Builds Repository[/COLOR]" version="2.1" provider-name="Thomas Begley">
+<addon id="repository.tdbegley.official" name="[COLOR black] .. [COLOR ghostwhite]TDB[/COLOR] [COLOR lightsteelblue]Builds Repository[/COLOR]" version="3.0" provider-name="TDB Wizard">
     <extension point="xbmc.addon.repository" name="thomas begley repository">
         <info compressed="false">http://github.com/tdbegley28/TB-Wizard/raw/master/addons.xml</info>
         <checksum>http://github.com/tdbegley28/TB-Wizard/raw/master/addons.xml.md5</checksum>
