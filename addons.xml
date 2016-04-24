@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addons>
 <addon id="plugin.video.tdbwizard" 
-	     name="[COLOR ghostwhite]TDB[/COLOR] [COLOR lightsteelblue]Wizard[/COLOR]" 
-	     version="5.4.8" 
+	     name="[COLOR black] .[COLOR ghostwhite]TDB[/COLOR] [COLOR lightsteelblue]Wizard[/COLOR]" 
+	     version="5.4.9" 
 	     provider-name="TDB Wizard">
   <requires>
   	<import addon="xbmc.python" version="2.1.0"/>
@@ -31,7 +31,7 @@
 
 <addon id="script.module.addon.common"
 	     name="Common addon methods"
-	     version="2.0.0"
+	     version="2.0.1"
 	     provider-name="Eldorado (original: t0mm0)">
   <requires>
     <import addon="xbmc.python" version="2.1.0" />
