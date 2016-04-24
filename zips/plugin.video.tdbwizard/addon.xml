@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="plugin.video.tdbwizard" 
+	     name="[COLOR ghostwhite]TDB[/COLOR] [COLOR lightsteelblue]Wizard[/COLOR]" 
+	     version="5.4.7" 
+	     provider-name="TDB Wizard">
+  <requires>
+  	<import addon="xbmc.python" version="2.1.0"/>
+	<import addon="script.module.addon.common" />
+	<import addon="script.module.requests" />
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>executable</provides>
+  </extension>
+  <extension point="xbmc.service" library="service.py" start="startup">
+  </extension> 
+  <extension point="xbmc.addon.metadata">
+    <platform>all</platform>
+    <summary lang="en">[COLOR ghostwhite]TDB[/COLOR] [COLOR lightsteelblue]Wizard[/COLOR]</summary>
+    <description lang="en">Install TDB official builds, manage your advancedsettings.xml file to limit buffering and maintain your system by deleting your cache and packages folder using the maintenance tool. You can also check where to watch the footy games, update your build and test your internet speed.</description>
+    <disclaimer lang="en"></disclaimer>
+    <language></language>
+    <platform>all</platform>
+    <license>GNU GENERAL PUBLIC LICENSE. Version 2, June 1991</license>
+    <forum></forum>
+    <website>http://tinyurl.com/zf4wekm</website>
+    <email>tdbegley28@gmail.com</email>
+    <source>https://github.com/tdbegley28</source>  
+  </extension>
+</addon>
