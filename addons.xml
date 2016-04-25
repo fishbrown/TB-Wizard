@@ -2,7 +2,7 @@
 <addons>
 <addon id="plugin.video.tdbwizard" 
 	     name="[COLOR black] .[COLOR ghostwhite]TDB[/COLOR] [COLOR lightsteelblue]Wizard[/COLOR]" 
-	     version="5.5.0" 
+	     version="5.5.1" 
 	     provider-name="TDB Wizard">
   <requires>
   	<import addon="xbmc.python" version="2.1.0"/>
